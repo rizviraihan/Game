@@ -10,7 +10,6 @@ public class MySweetProgram {
 		
 		System.out.println(s);
 
-
 		in.close();
 	}
 }
