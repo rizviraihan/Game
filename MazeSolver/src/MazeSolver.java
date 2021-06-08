@@ -5,7 +5,7 @@ public class MazeSolver {
 	static int[][] maze = {
 			{2,0,1,1},
 			{1,1,0,1},
-			{0,0,1,0}
+			{0,1,1,1}
 	};
 	//0 = wall
 	//1 = path
