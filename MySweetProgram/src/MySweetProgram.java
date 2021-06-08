@@ -1,28 +1,20 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Scanner;
-
 public class MySweetProgram {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 
-		LinkedList<String> names = new LinkedList<String>();
-		names.push("Rizvi");
-		names.push("Sanzida");
-		names.push("Waniya");
+		int[][] data = {
 
-		ListIterator<String> it = names.listIterator();
-		it.next();
-		it.next();
-		it.add("susan");
+				{ 23, 4, 67, 2 }, 
+				{ 4, 89, 34, 1, 56, 8, 53, 6 }, 
+				{ 76, 81, 34, 5 }
 
-		for (String s : names) {
-			System.out.println(s);
+		};
+
+		for (int i = 0; i < data.length; i++) {
+			for (int j = 0; j < data[i].length; j++) {
+				System.out.print(data[i][j] + " ");
+			}
+			System.out.println();
 		}
 	}
 }
