@@ -5,9 +5,9 @@ public class MazeSolver {
 	static int[][] maze = { 
 			{ 2, 1, 1, 1 }, 
 			{ 0, 0, 1, 1 }, 
-			{ 0, 0, 0, 1 } 
+			{ 0, 0, 0, 1 } 			
 	};
-	
+
 	// 0 = wall
 	// 1 = path
 	// 2 = destination
@@ -15,7 +15,17 @@ public class MazeSolver {
 	static LinkedList<Position> path = new LinkedList<Position>();
 
 	public static void main(String[] args) {
-		Position p = new Position(0, 3);
+
+		if (solveMaze(new Position(0, 3))) {
+			System.out.println("You Won!");
+		} else {
+			System.out.println("No path");
+		}
+
+	}
+
+	private static boolean solveMaze(Position p) {
+
 		path.push(p);
 
 		while (true) {
@@ -28,8 +38,8 @@ public class MazeSolver {
 			if (isValid(y + 1, x)) {
 
 				if (maze[y + 1][x] == 2) {
-					System.out.println("Moved down. You won!");
-					return;
+					System.out.println("Moved down");
+					return true;
 				} else if (maze[y + 1][x] == 1) {
 					System.out.println("Moved down");
 					path.push(new Position(y + 1, x));
@@ -42,10 +52,10 @@ public class MazeSolver {
 			if (isValid(y, x - 1)) {
 
 				if (maze[y][x - 1] == 2) {
-					System.out.println("Moved left. You won!");
-					return;
+					System.out.println("Moved left");
+					return true;
 				} else if (maze[y][x - 1] == 1) {
-					System.out.println("Moved left.");
+					System.out.println("Moved left");
 					path.push(new Position(y, x - 1));
 					continue;
 				}
@@ -56,8 +66,8 @@ public class MazeSolver {
 			if (isValid(y - 1, x)) {
 
 				if (maze[y - 1][x] == 2) {
-					System.out.println("Moved up. You won!");
-					return;
+					System.out.println("Moved up");
+					return true;
 				} else if (maze[y - 1][x] == 1) {
 					System.out.println("Moved up");
 					path.push(new Position(y - 1, x));
@@ -70,8 +80,8 @@ public class MazeSolver {
 			if (isValid(y, x + 1)) {
 
 				if (maze[y][x + 1] == 2) {
-					System.out.println("Moved right. You won!");
-					return;
+					System.out.println("Moved right");
+					return true;
 				} else if (maze[y][x + 1] == 1) {
 					System.out.println("Moved right");
 					path.push(new Position(y, x + 1));
@@ -83,8 +93,7 @@ public class MazeSolver {
 			path.pop();
 			System.out.println("Moved back");
 			if (path.size() <= 0) {
-				System.out.println("No path");
-				return;
+				return false;
 			}
 
 		}
